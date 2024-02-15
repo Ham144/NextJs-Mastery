@@ -10,7 +10,7 @@ const Home = () => {
 
   return (
     <div>
-      <h2>User router</h2>
+      
     </div>
   )
 }
