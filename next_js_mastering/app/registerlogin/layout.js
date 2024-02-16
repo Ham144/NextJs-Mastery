@@ -9,7 +9,7 @@ const Register_login = ({ children }) => {
       <h2>Authentication</h2>
       {children}
       <b>or</b>
-      <section className='text-center  w-[300px] gap-4 flex mt-9 pb-6 '>
+      <section className='text-center  gap-5 flex mt-9 pb-6 '>
 
         <Link href={"/registerlogin/login"} className='button-primer'>login here</Link>
 

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { notFound, redirect, useRouter } from "next/navigation";
+import { notFound, useRouter } from "next/navigation";
 
 const Navbar = () => {
   const router = useRouter();
