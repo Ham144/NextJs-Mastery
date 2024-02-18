@@ -1,12 +1,19 @@
-import { NextResponse } from "next/server";
-import { users } from "@/app/util/db";
+import { NextResponse } from "next/server"
 
-export function GET() { //harus huruf besar GET, tidak boleh Get
-    const data = users
-    const updated = data.filter((item, index) => {
-        return index < data.length - 1 && item.id !== data[index + 1].id
-    })
-    updated.push(data[data.length - 1])
-    return NextResponse.json({ updated })
+export async function POST(req, res) {
+    const { name, age, hobby } = await req.json()
+    if (!name || !age || !hobby) {
+        console.log(`perlu name, age, hobby`)
+        return NextResponse.json({ error: "haha error" }, { status: 402 })
 
-}
+    }
+    else {
+        console.log(name, age, hobby)
+
+        return NextResponse.json(
+            { ok: true }, //harus diatas ini response.ok ini kampret kampret
+            { success: "Selamat ya udah isi, eh udah berapa bulan?" },
+            { status: 201 },
+        )
+    }
+} 
