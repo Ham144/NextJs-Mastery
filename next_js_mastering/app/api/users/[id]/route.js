@@ -6,7 +6,7 @@ import fs from "fs"
 export async function GET(_, res) {
     const { id } = await res.params
     const found = users.filter((user) => user.id === parseInt(id));
-    if(!found) return NextResponse.json({ok: false})
+    if (!found) return NextResponse.json({ ok: false })
     return NextResponse.json({ found, ok: true })
 }
 
@@ -40,7 +40,7 @@ export async function PUT(req, res) {
     const { id } = await res.params
     const { name, age, email, password } = await req.json()
 
-    if (!name || !age || !email || !password) return NextResponse.json({ msg: "Perlu memasukkan data semau field" })
+    if (!id || !name || !age || !email || !password) return NextResponse.json({ msg: "Perlu memasukkan data semua field" })
 
     const foundIndex = users.findIndex((user) => {
         return user.id === parseInt(id)
@@ -59,6 +59,36 @@ export async function PUT(req, res) {
 
 
     return NextResponse.json({ msg: "sukses isi 2" })
+}
+
+export async function PATCH(req, res) {
+    const { id } = await res.params
+    const { name, age, email, password } = await req.json()
+    if (!id) return NextResponse.json({ msg: 'perlu memasukkan id' })
+    const foundIndex = users.findIndex((user) => {
+        return user.id === parseInt(id)
+    })
+    if (foundIndex === -1) return NextResponse.json({ error: "ID demikian tidak ditemukan" })
+    try {
+        users[foundIndex].id = parseInt(id)
+        name ? users[foundIndex].name = name : users[foundIndex].name
+        age ? users[foundIndex].age = age : users[foundIndex].age
+        email ? users[foundIndex].email = email : users[foundIndex].email
+        password ? users[foundIndex].password = password : users[foundIndex].password
+    } catch (error) {
+        return NextResponse.json({Error: error})
+    }
+    
+    const updatedUsers = users
+    const toInsertData = JSON.stringify(updatedUsers, null, 2)
+
+    try {
+        fs.writeFileSync('app/util/db.js', `export const users = ${toInsertData}`, "utf-8")
+    } catch (error) {
+        return NextResponse.json({Error: error})
+    }
+    return NextResponse.json({ found: users[foundIndex] })
+
 }
 
 //DELETE specific user

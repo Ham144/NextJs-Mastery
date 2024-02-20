@@ -8,19 +8,31 @@ import {
 import Allusers from "./Allusers";
 import SpecificUser from "./SpecificUser";
 import CreateNewUser from "./CreateNewUser";
+import UpdateUser from "./UpdateUser";
 
 const AccordionUI = () => {
   const [open, setOpen] = useState(0);
-  const handleOpen = (value) => setOpen(open == value ? 0 : value);
+  function showAllUsers() {
+    return "Allusers";
+  }
+  const handleOpen = (value) => {
+    setOpen(open == value ? 0 : value);
+    showAllUsers();
+  };
 
   return (
     <div>
       <Accordion open={open === 1} className="w-[23rem]  ">
-        <AccordionHeader onClick={() => handleOpen(1)}>
+        <AccordionHeader
+          onClick={() => {
+            handleOpen(1);
+          }}
+        >
           SHOW ALL USERS
         </AccordionHeader>
         <AccordionBody>
-          <Allusers />
+            {/* <Allusers /> */}
+            <AccordionBody>{open === 1 ? (<Allusers />) : (<></>)}</AccordionBody>
         </AccordionBody>
       </Accordion>
       <Accordion open={open === 2} className="w-[23rem]">
@@ -33,10 +45,18 @@ const AccordionUI = () => {
       </Accordion>
       <Accordion open={open === 3} className="w-[23rem]">
         <AccordionHeader onClick={() => handleOpen(3)}>
-            Create new User
+          Create new User
         </AccordionHeader>
         <AccordionBody>
-            <CreateNewUser />            
+          <CreateNewUser />
+        </AccordionBody>
+      </Accordion>
+      <Accordion open={open === 4} className="w-[23rem]">
+        <AccordionHeader onClick={() => handleOpen(4)}>
+          Change User Data
+        </AccordionHeader>
+        <AccordionBody>
+          <UpdateUser />
         </AccordionBody>
       </Accordion>
     </div>

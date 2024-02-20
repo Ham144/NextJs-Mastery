@@ -5,14 +5,15 @@ import { List, ListItem, Card } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 const Allusers = () => {
   const [users, setUsers] = useState("");
+  let userInfo = null;
   useEffect(() => {
     const fetchAllUsers = async () => {
       const response = await fetch("/api/users");
-      const userInfo = await response.json();
+      userInfo = await response.json();
       setUsers(userInfo.data);
     };
     fetchAllUsers();
-  }, []);//jangan lupa taruh square bracket [] pada use effect kalau tidak dia terus update habisin data
+  }, []) //jangan lupa taruh square bracket [] pada use effect kalau tidak dia terus update habisin internet
 
   return (
     <div>
@@ -25,7 +26,14 @@ const Allusers = () => {
           ) => (
             <Card key={user.id} className="mb-4">
               <List>
-                <ListItem>{user.name}</ListItem>
+                <ListItem className="flex flex-row justify-center">
+                  <div className="absolute left-4  text-blue-300 font-bold">
+                    {user.id}
+                  </div>
+                  <div className="flex justify-center  text-blue-300 font-bold">
+                    {user.name}
+                  </div>
+                </ListItem>
               </List>
             </Card>
           )

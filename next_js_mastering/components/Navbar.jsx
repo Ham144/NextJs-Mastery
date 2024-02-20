@@ -18,16 +18,16 @@ const Navbar = () => {
   return (
     <nav>
       <ul className="text-center flex justify-between px-9 bg-blue-100 py-3 rounded-b-lg mx-8 drop-shadow-lg">
-        <div>icon</div>
-        <div className="link-container flex gap-5 font-bold ">
-          <Link href="/home">Home</Link>
-          <Link href="/about">about</Link>
+        <div className="flex items-center">icon</div>
+        <div className="link-container flex gap-5 font-bold items-center">
+          <Link href="/">Home</Link>
+          <Link href="/users">Users</Link>
           <Link href="/portofolio">portofolio</Link>
           <button
             className="button-primer"
             onClick={() => redirectTo("ham145")}
           >
-            Register login
+            Register / login
           </button>
         </div>
       </ul>

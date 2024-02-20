@@ -29,10 +29,10 @@ export const users = [
   },
   {
     "id": 5,
-    "name": "Lia",
-    "age": 22,
-    "email": "Anastasya@gmail.com",
-    "password": "Ade fadilla"
+    "name": "ade",
+    "age": "23",
+    "email": "adefadilla@gmail.com",
+    "password": "ade1234"
   },
   {
     "id": 6,
@@ -54,5 +54,47 @@ export const users = [
     "age": 21,
     "email": "alanturing1945@WW2.com",
     "password": "alan turing"
+  },
+  {
+    "id": 9,
+    "name": "Beethoven",
+    "age": "55",
+    "email": "beethovenocrhestra@gmail.com",
+    "password": "beathovem"
+  },
+  {
+    "id": 10,
+    "name": "Eden Hazard",
+    "age": "33",
+    "email": "primehazard10@gmail.com",
+    "password": "hazardchelsea@gmail.com"
+  },
+  {
+    "id": 11,
+    "name": "elon musk",
+    "age": "54",
+    "email": "elonsapcex@gmail.com",
+    "password": "elontesla"
+  },
+  {
+    "id": 12,
+    "name": "Pablo Escobar",
+    "age": "65",
+    "email": "pablodeloco@gmail.com",
+    "password": "burnyourfamily"
+  },
+  {
+    "id": 13,
+    "name": "Pablo Escobar",
+    "age": "65",
+    "email": "pablodeloco@gmail.com",
+    "password": "burnyourfamily"
+  },
+  {
+    "id": 14,
+    "name": "kapten puyol",
+    "age": "55",
+    "email": "puyolbarca@gmail.com",
+    "password": "kaptenpuyolthebestkapten"
   }
 ]
