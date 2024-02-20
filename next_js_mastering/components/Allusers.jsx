@@ -8,26 +8,28 @@ const Allusers = () => {
   useEffect(() => {
     const fetchAllUsers = async () => {
       const response = await fetch("/api/users");
-      const users = await response.json();
-      setUsers(users);
+      const userInfo = await response.json();
+      setUsers(userInfo.data);
     };
     fetchAllUsers();
-  });
+  }, []);//jangan lupa taruh square bracket [] pada use effect kalau tidak dia terus update habisin data
 
   return (
     <div>
-      {users ? (
-        users.map((user) => {
-          <Card key={user.id} className="mb-4">
-            <List>
-              <ListItem>{user.name}</ListItem>
-            </List>
-          </Card>;
-        })
+      {users.length === 0 ? (
+        <p>Loading users...</p>
       ) : (
-        <div>
-          <pre>N0thing f0und</pre>
-        </div>
+        users.map(
+          (
+            user //ini jangan lupa, pake parenthesis bukan curly-braces kaya biasa
+          ) => (
+            <Card key={user.id} className="mb-4">
+              <List>
+                <ListItem>{user.name}</ListItem>
+              </List>
+            </Card>
+          )
+        )
       )}
     </div>
   );

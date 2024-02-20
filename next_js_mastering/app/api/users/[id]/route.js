@@ -6,8 +6,8 @@ import fs from "fs"
 export async function GET(_, res) {
     const { id } = await res.params
     const found = users.filter((user) => user.id === parseInt(id));
-
-    return NextResponse.json({ found })
+    if(!found) return NextResponse.json({ok: false})
+    return NextResponse.json({ found, ok: true })
 }
 
 //LOGIN request
@@ -77,6 +77,6 @@ export async function DELETE(req, res) {
     const updatedData = JSON.stringify(updatedUsers, null, 2)
     //hubungkan dengan util/db.js dan ganti semua dengan updatedusers
     fs.writeFileSync('app/util/db.js', `export const users = ${updatedData}`, "utf-8")
-    
+
     return NextResponse.json({ succes: "sukses menghapus 1 user" })
 }

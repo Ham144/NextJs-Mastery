@@ -28,6 +28,13 @@ export const users = [
     "password": "crotcrot"
   },
   {
+    "id": 5,
+    "name": "Lia",
+    "age": 22,
+    "email": "Anastasya@gmail.com",
+    "password": "Ade fadilla"
+  },
+  {
     "id": 6,
     "name": "Alex ferguson",
     "age": 29,
