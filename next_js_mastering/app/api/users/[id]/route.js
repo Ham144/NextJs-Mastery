@@ -99,6 +99,7 @@ export async function DELETE(req, res) {
         return user.id === parseInt(id)
     })
     if (foundIndex === -1) return NextResponse.json({ msg: 'params out of bounds/tak ditemukan' })
+    
     //hapus
     users.splice(foundIndex, 1)
     //dapatkan users yang baru setelah operasi

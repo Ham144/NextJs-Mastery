@@ -9,9 +9,9 @@ export const users = [
   {
     "id": 2,
     "name": "Bruno",
-    "age": 29,
-    "email": "Bruno@gmail.com",
-    "password": "BrunoBlack"
+    "age": "23",
+    "email": "bruno@gmail.com",
+    "password": "B,runoMard"
   },
   {
     "id": 3,
@@ -78,13 +78,6 @@ export const users = [
   },
   {
     "id": 12,
-    "name": "Pablo Escobar",
-    "age": "65",
-    "email": "pablodeloco@gmail.com",
-    "password": "burnyourfamily"
-  },
-  {
-    "id": 13,
     "name": "Pablo Escobar",
     "age": "65",
     "email": "pablodeloco@gmail.com",

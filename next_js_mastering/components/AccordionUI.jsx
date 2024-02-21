@@ -9,6 +9,7 @@ import Allusers from "./Allusers";
 import SpecificUser from "./SpecificUser";
 import CreateNewUser from "./CreateNewUser";
 import UpdateUser from "./UpdateUser";
+import DeleteUser from "./DeleteUser";
 
 const AccordionUI = () => {
   const [open, setOpen] = useState(0);
@@ -57,6 +58,14 @@ const AccordionUI = () => {
         </AccordionHeader>
         <AccordionBody>
           <UpdateUser />
+        </AccordionBody>
+      </Accordion>
+      <Accordion open={open === 5} className="w-[23rem]">
+        <AccordionHeader onClick={() => handleOpen(5)}>
+          Delete a user
+        </AccordionHeader>
+        <AccordionBody>
+            <DeleteUser/>
         </AccordionBody>
       </Accordion>
     </div>

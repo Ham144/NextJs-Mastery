@@ -33,12 +33,7 @@ const UpdateUser = () => {
           body: JSON.stringify({ Id, name, age, email, password }),
         });
         if (response.ok) {
-          alert(`Berhasil mengedit data user ${name}`);
-          setId("");
-          setName("");
-          setAge("");
-          setEmail("");
-          setPassword("");
+          clearFields();
         } else return console.log("GAGAL, Response is not ok");
       } else {
         const response = await fetch(`api/users/${Id}`, {
@@ -54,15 +49,18 @@ const UpdateUser = () => {
           }),
         });
         if (response.ok) {
-          alert(`Berhasil mengedit data user ${name}`);
-          setId("");
-          setName("");
-          setAge("");
-          setEmail("");
-          setPassword("");
+          clearFields();
         } else return console.log("GAGAL, Response is not ok");
       }
     }
+  };
+  const clearFields = () => {
+    alert(`Berhasil mengedit data user ${name}`);
+    setId("");
+    setName("");
+    setAge("");
+    setEmail("");
+    setPassword("");
   };
 
   return (
